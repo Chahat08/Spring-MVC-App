@@ -17,8 +17,9 @@ public class Student {
     public Student(Long id,
                    String name,
                    String email,
-                   Integer age,
-                   LocalDate dob) {
+                   LocalDate dob,
+                   Integer age
+                   ) {
         this.id = id;
         this.name=name;
         this.email=email;
@@ -26,7 +27,10 @@ public class Student {
         this.dob=dob;
     }
 
-    public Student(String name, String email, Integer age, LocalDate dob) {
+    public Student(String name,
+                   String email,
+                   LocalDate dob,
+                   Integer age) {
         this.name = name;
         this.email = email;
         this.age = age;
