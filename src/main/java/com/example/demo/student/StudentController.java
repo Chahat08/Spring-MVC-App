@@ -12,16 +12,14 @@ import java.util.List;
 @RequestMapping(path="api/v1/student")
 public class StudentController {
 
+    private final StudentService studentService;
+
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
+
     @GetMapping(value="") // creating an endpoint, return val if list (or collection) -> we get json back
-    public List<Student> getStudents(){
-        return List.of(
-                new Student(
-                        1L,
-                        "Chahat Kalsi",
-                        "chahat.ck88@gmail.com",
-                        LocalDate.of(2001, Month.JANUARY, 8),
-                        21
-                )
-        );
+    public List<Student> getStudents() {
+        return studentService.getStudents();
     }
 }
