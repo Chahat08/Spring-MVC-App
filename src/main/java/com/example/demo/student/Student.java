@@ -22,6 +22,7 @@ public class Student {
     private Long id;
     private String name;
     private  String email;
+    @Transient // specifies that the  field(age) doesn't have to be a col in the db
     private Integer age;
     private LocalDate dob;
 
@@ -31,23 +32,19 @@ public class Student {
     public Student(Long id,
                    String name,
                    String email,
-                   LocalDate dob,
-                   Integer age
+                   LocalDate dob
                    ) {
         this.id = id;
         this.name=name;
         this.email=email;
-        this.age=age;
         this.dob=dob;
     }
 
     public Student(String name,
                    String email,
-                   LocalDate dob,
-                   Integer age) {
+                   LocalDate dob) {
         this.name = name;
         this.email = email;
-        this.age = age;
         this.dob = dob;
     }
 

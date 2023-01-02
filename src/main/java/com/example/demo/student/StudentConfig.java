@@ -17,14 +17,12 @@ public class StudentConfig {
             Student ck = new Student(
                     "Chahat Kalsi",
                     "chahat.ck88@gmail.com",
-                    LocalDate.of(2001, Month.FEBRUARY, 8),
-                    21
+                    LocalDate.of(2001, Month.FEBRUARY, 8)
             );
             Student xyz = new Student(
                     "Ex Why Zed",
                     "xyz@abc.com",
-                    LocalDate.of(2001, Month.DECEMBER, 8),
-                    21
+                    LocalDate.of(2001, Month.DECEMBER, 8)
             );
             // created 2 entries for the db table student
             // saving those entries in the db
