@@ -27,9 +27,7 @@ public class StudentController {
     // adding new student here
     @PostMapping
     public void registerNewStudent(@RequestBody Student student){ // RequestBody for getting a request from a client
-        System.out.println("hello");
-        System.out.println(student);
-        //studentService.addNewStudent(student);
+        studentService.addNewStudent(student);
     }
 
     /*
