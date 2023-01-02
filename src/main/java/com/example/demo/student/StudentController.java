@@ -1,9 +1,7 @@
 package com.example.demo.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -24,4 +22,21 @@ public class StudentController {
     public List<Student> getStudents() {
         return studentService.getStudents();
     }
+
+    // POST is used when adding new resources to our db
+    // adding new student here
+    @PostMapping
+    public void registerNewStudent(@RequestBody Student student){ // RequestBody for getting a request from a client
+        System.out.println("hello");
+        System.out.println(student);
+        //studentService.addNewStudent(student);
+    }
+
+    /*
+    {
+	"name":"bilal",
+    "email":"bilal@gmail.com",
+    "dob":"1995-12-17"
+}
+     */
 }
