@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity // hibernating to a db
 @Table  // class represents a db table
@@ -72,8 +73,9 @@ public class Student {
         this.email = email;
     }
 
+    // after setting age transient, calculate using time.period
     public Integer getAge() {
-        return age;
+        return Period.between(this.dob, LocalDate.now()).getYears();
     }
 
     public void setAge(Integer age) {
