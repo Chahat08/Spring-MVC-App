@@ -32,4 +32,8 @@ public class StudentService {
         }
         studentRepository.save(student);
     }
+
+    public void deleteStudent(Student student) {
+        System.out.println(student + "deleted");
+    }
 }
