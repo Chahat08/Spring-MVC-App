@@ -36,6 +36,12 @@ public class StudentController {
         studentService.deleteStudent(StudentId);
     }
 
+    // PUT is used when we want to update an existing entry in the db
+    @PutMapping(path = "{studentId}")
+    public void updateStudent(@PathVariable("studentId") Long studentId){
+        studentService.updateStudent(studentId);
+    }
+
     /*
     {
 	"name":"bilal",

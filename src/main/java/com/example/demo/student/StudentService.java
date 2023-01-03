@@ -38,4 +38,12 @@ public class StudentService {
             studentRepository.deleteById(studentId);
         else throw new IllegalStateException("student with studentId "+studentId+" does not exist");
     }
+
+    public void updateStudent(Long studentId) {
+        Optional<Student> studentById = studentRepository.findById(studentId);
+        if(studentById.isPresent()){
+
+        }
+        else throw new IllegalStateException("Student with id "+studentId+" does not exist");
+    }
 }
