@@ -31,9 +31,9 @@ public class StudentController {
     }
 
     // DELETE is used to delete existing resources from the db
-    @DeleteMapping
-    public void deleteStudent(@RequestBody Student student){
-        studentService.deleteStudent(student);
+    @DeleteMapping(path = "{studentId}")
+    public void deleteStudent(@PathVariable("studentId") Long StudentId){
+        studentService.deleteStudent(StudentId);
     }
 
     /*
