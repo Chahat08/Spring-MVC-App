@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
+import static com.sun.beans.introspect.PropertyInfo.Name.required;
+
 @RestController
 @RequestMapping(path="api/v1/student")
 public class StudentController {
@@ -38,8 +40,11 @@ public class StudentController {
 
     // PUT is used when we want to update an existing entry in the db
     @PutMapping(path = "{studentId}")
-    public void updateStudent(@PathVariable("studentId") Long studentId){
-        studentService.updateStudent(studentId);
+    public void updateStudent(
+            @PathVariable("studentId") Long studentId,
+            @RequestParam(required=false) String name,
+            @RequestParam(required=false) String email){
+        studentService.updateStudent(studentId, name, email);
     }
 
     /*
