@@ -56,12 +56,14 @@ public class StudentService {
 
         if(email!=null &&
                 email.length()>0 &&
-                !Objects.equals(student.getEmail(), email)){
-            Student studentByEmail = studentRepository.findStudentByEmail(email)
-                    .orElseThrow(()->new IllegalStateException(
-                            "Student with email id "+email+" already exists"
-                    ));
+                !Objects.equals(student.getEmail(), email)) {
+
+
+            Optional<Student> studentByEmail = studentRepository.findStudentByEmail(email);
+            if (studentByEmail.isPresent())
+                throw new IllegalStateException("Student with email id " + email + " already exists");
             student.setEmail(email);
         }
+
     }
 }
