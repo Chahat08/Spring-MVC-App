@@ -48,17 +48,19 @@ public class StudentService {
                         "Student with id "+studentId+" does not exist"
                 ));
 
-        if(
-                name!=null &&
+        if(name!=null &&
                 name.length()>0 &&
                 !Objects.equals(student.getName(), name)){
             student.setName(name);
         }
 
-        if(
-                email!=null &&
-                        email.length()>0 &&
-                        !Objects.equals(student.getEmail(), email)){
+        if(email!=null &&
+                email.length()>0 &&
+                !Objects.equals(student.getEmail(), email)){
+            Student studentByEmail = studentRepository.findStudentByEmail(email)
+                    .orElseThrow(()->new IllegalStateException(
+                            "Student with email id "+email+" already exists"
+                    ));
             student.setEmail(email);
         }
     }
